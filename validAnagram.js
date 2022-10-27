@@ -10,7 +10,7 @@ function validAnagram(str1, str2){
   }
   // loop through second string, and create similar object for that string
   for (const char of str2) {
-      count2[char] = count2[char]++ || 1;
+      count2[char] = ++count2[char] || 1;
   }
   
   // reference first object, by key of each string2 value, check if number of occurences are the same
