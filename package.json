@@ -1,0 +1,22 @@
+{
+  "name": "udemy-js-algorithms-datastructures",
+  "version": "1.0.0",
+  "description": "by Colt Steele",
+  "main": "anagrams.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andyknolla/Udemy-JS-Algorithms-Datastructures.git"
+  },
+  "author": "Andy Knolla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andyknolla/Udemy-JS-Algorithms-Datastructures/issues"
+  },
+  "homepage": "https://github.com/andyknolla/Udemy-JS-Algorithms-Datastructures#readme",
+  "dependencies": {
+    "jest": "^29.2.2"
+  }
+}
