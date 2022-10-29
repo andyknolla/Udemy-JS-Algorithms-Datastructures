@@ -1,12 +1,10 @@
-function areThereDuplicates() {
+function areThereDuplicates(...args) {
   let frequency = {};
-  for(let i = 0; i < arguments.length; i++) {
-      const item = String(arguments[i]);
+  for(let i = 0; i < args.length; i++) {
+      const item = String(args[i]);
       frequency[item] = ++frequency[item] || 1;
   }
-  console.log('freq obj = ', frequency)
   for(const item in frequency) {
-      console.log('item: ', item)
       if(frequency[item] > 1) return true;
   }
   return false;
