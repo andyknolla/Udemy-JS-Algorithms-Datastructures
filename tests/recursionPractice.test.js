@@ -25,6 +25,14 @@ test('factorial(7) should equal 5040', () => {
   expect(recursion.factorial(7)).toBe(5040);
 });
 
+// productOfArray
+test('productOfArray([1, 2, 3]) should equal 6', () => {
+  expect(recursion.productOfArray([1, 2, 3])).toBe(6);
+});
+test('productOfArray([1,2,3,10]) should equal 60', () => {
+  expect(recursion.productOfArray([1,2,3,10])).toBe(60);
+});
+
 
 
 //factorial(1) // 1

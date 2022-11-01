@@ -17,6 +17,12 @@ because 4 * 3 * 2 * 1 equals 24.  factorial zero (0!) is always 1.
 // factorial(2) // 2
 // factorial(4) // 24
 // factorial(7) // 5040
+
+productOfArray
+
+Write a function called productOfArray which takes in an array of numbers and returns the product of them all.
+// productOfArray([1,2,3]) // 6
+// productOfArray([1,2,3,10]) // 60
 */
 
 const recursion = {
@@ -28,7 +34,15 @@ const recursion = {
   factorial: function (num) {
       if(num == 1) return 1;
       return num * this.factorial(num-1);
-   }
+   },
+  productOfArray: function(arr) {
+    const productOfTwo = arr[0] * arr[1];
+    if(arr.length === 2) {
+        return productOfTwo;
+    }
+    arr.splice(0, 2, productOfTwo);
+    return this.productOfArray(arr);
+  }
 }
 
 
