@@ -60,3 +60,41 @@ test('Insertion sort should sort the array with negative numbers', () => {
 test('Insertion sort should sort the nearly sorted array', () => {
   expect(sorting.insertionSort(nearlySortedLength10Array.unsorted)).toStrictEqual(nearlySortedLength10Array.sorted);
 });
+
+// Merge Sort
+// Test merge helper function
+test('Merge helper should merge two sorted arrays into one sorted array of length of two argument arrays', () => {
+  expect(sorting.merge([ 1,3,6,9 ], [ 4,5,8,11 ])).toStrictEqual([ 1,3,4,5,6,8,9,11 ]);
+});
+test('Merge helper should merge two sorted arrays (2nd of longer length) into one sorted array of length of two argument arrays', () => {
+  expect(sorting.merge([ 1,3,6,9 ], [ 4,5,8,11,17,28,31 ])).toStrictEqual([ 1,3,4,5,6,8,9,11,17,28,31 ]);
+});
+test('Merge helper should merge two sorted arrays (1st of longer length) into one sorted array of length of two argument arrays', () => {
+  expect(sorting.merge([ 1,3,6,9,17,28,31 ], [ 4,5,8,11 ])).toStrictEqual([ 1,3,4,5,6,8,9,11,17,28,31 ]);
+});
+test('Merge helper should merge two sorted arrays (1st one of length zero) into one sorted array of length of two argument arrays', () => {
+  expect(sorting.merge([  ], [ 4,5,8,11 ])).toStrictEqual([ 4,5,8,11 ]);
+});
+test('Merge helper should merge two sorted arrays (2nd one of length zero) into one sorted array of length of two argument arrays', () => {
+  expect(sorting.merge([ 1,3,6,9,17,28,31 ], [ ])).toStrictEqual([ 1,3,6,9,17,28,31 ]);
+});
+test('Merge helper should merge two sorted arrays; one empty, the other length of 1', () => {
+  expect(sorting.merge([ 1 ], [ ])).toStrictEqual([ 1 ]);
+});
+test('Merge helper should merge two sorted arrays; one empty, the other length of 1', () => {
+  expect(sorting.merge([ ], [ 1 ])).toStrictEqual([ 1 ]);
+});
+
+// test MergeSort function
+test('Merge sort should sort a short array', () => {
+  expect(sorting.mergeSort(length10Array.unsorted)).toStrictEqual(length10Array.sorted);
+});
+test('Merge sort should sort the longer array', () => {
+  expect(sorting.mergeSort(length20Array.unsorted)).toStrictEqual(length20Array.sorted);
+});
+test('Merge sort should sort an array with negative numbers', () => {
+  expect(sorting.mergeSort(length10ArrayWithNegatives.unsorted)).toStrictEqual(length10ArrayWithNegatives.sorted);
+});
+test('Merge sort should sort a nearly array ', () => {
+  expect(sorting.mergeSort(nearlySortedLength10Array.unsorted)).toStrictEqual(nearlySortedLength10Array.sorted);
+});
