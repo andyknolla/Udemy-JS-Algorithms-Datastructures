@@ -1,4 +1,4 @@
-const maxSubarraySum = require('../maxSubArraySum');
+const maxSubarraySum = require('../exercises/maxSubArraySum');
 
 test('[100,200,300,400], 2 should have a max sub array sum of 700', () => {
   expect(maxSubarraySum([100,200,300,400], 2)).toBe(700);

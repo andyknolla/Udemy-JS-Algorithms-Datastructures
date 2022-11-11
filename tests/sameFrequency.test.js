@@ -1,4 +1,4 @@
-const sameFrequency = require('../sameFrequency');
+const sameFrequency = require('../exercises/sameFrequency');
 
 test('128 and 812 to have the same frequency', ()=> {
   expect(sameFrequency(128, 812)).toBe(true);

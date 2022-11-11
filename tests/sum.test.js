@@ -1,4 +1,4 @@
-const validAnagram = require('../validAnagram');
+const validAnagram = require('../exercises/validAnagram');
 
 test('Finds two empty strings to be an anagram', ()=> {
   expect(validAnagram('', '')).toBe(true);

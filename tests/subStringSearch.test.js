@@ -1,4 +1,4 @@
-const countSubString = require('../subStringSearch');
+const countSubString = require('../exercises/subStringSearch');
 
 test('Test', () => {
   expect(countSubString('Come with me if you want to live', 'want')).toBe(1);

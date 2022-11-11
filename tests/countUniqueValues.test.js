@@ -1,4 +1,4 @@
-const countUniqueValues = require('../countUniqueValues');
+const countUniqueValues = require('../exercises/countUniqueValues');
 
 test('Unique values in [1,1,1,1,1,2]', ()=> {
   expect(countUniqueValues([1,1,1,1,1,2])).toBe(2);

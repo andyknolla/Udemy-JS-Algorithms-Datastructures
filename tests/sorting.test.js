@@ -1,4 +1,4 @@
-const sorting = require('../sorting');
+const sorting = require('../exercises/sorting');
 
 const length10Array = {
   unsorted: [5,2,8,3,12,9,0,6,7,2],
@@ -22,13 +22,13 @@ const nearlySortedLength10Array = {
 test('Bubble sort should sort the pretty short array', () => {
   expect(sorting.bubbleSort(length10Array.unsorted)).toStrictEqual(length10Array.sorted);
 });
-[54,23,1,56,84,25,12,56,24,40,31,1,37,29,9,16,42]
 test('Bubble sort should sort the longer array', () => {
   expect(sorting.bubbleSort(length20Array.unsorted)).toStrictEqual(length20Array.sorted);
 });
 test('Bubble sort should sort the array with negative numbers', () => {
   expect(sorting.bubbleSort(length10ArrayWithNegatives.unsorted)).toStrictEqual(length10ArrayWithNegatives.sorted);
 });
+
 test('Bubble sort should quickly sort the nearly sorted array', () => {
   expect(sorting.bubbleSort(nearlySortedLength10Array.unsorted)).toStrictEqual(nearlySortedLength10Array.sorted);
 });
@@ -37,7 +37,6 @@ test('Bubble sort should quickly sort the nearly sorted array', () => {
 test('Selection sort should sort the pretty short array', () => {
   expect(sorting.selectionSort(length10Array.unsorted)).toStrictEqual(length10Array.sorted);
 });
-[54,23,1,56,84,25,12,56,24,40,31,1,37,29,9,16,42]
 test('Selection sort should sort the longer array', () => {
   expect(sorting.selectionSort(length20Array.unsorted)).toStrictEqual(length20Array.sorted);
 });
@@ -46,4 +45,18 @@ test('Selection sort should sort the array with negative numbers', () => {
 });
 test('Selection sort should sort the nearly sorted array', () => {
   expect(sorting.selectionSort(nearlySortedLength10Array.unsorted)).toStrictEqual(nearlySortedLength10Array.sorted);
+});
+
+// Insertion Sort
+test('Insertion sort should sort the pretty short array', () => {
+  expect(sorting.insertionSort(length10Array.unsorted)).toStrictEqual(length10Array.sorted);
+});
+test('Insertion sort should sort the longer array', () => {
+  expect(sorting.insertionSort(length20Array.unsorted)).toStrictEqual(length20Array.sorted);
+});
+test('Insertion sort should sort the array with negative numbers', () => {
+  expect(sorting.insertionSort(length10ArrayWithNegatives.unsorted)).toStrictEqual(length10ArrayWithNegatives.sorted);
+});
+test('Insertion sort should sort the nearly sorted array', () => {
+  expect(sorting.insertionSort(nearlySortedLength10Array.unsorted)).toStrictEqual(nearlySortedLength10Array.sorted);
 });

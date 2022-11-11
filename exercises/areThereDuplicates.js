@@ -11,6 +11,6 @@ function areThereDuplicates(...args) {
 }
 
 // TODO: try solving with Multiple Pointers method
-// Need to sort?
+// Need to sort? yes
 
 module.exports = areThereDuplicates;

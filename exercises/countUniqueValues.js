@@ -2,7 +2,7 @@
 and counts the unique values in the array. There can be negative numbers in the array, 
 but it will always be sorted. */
 
-// My solution using Multiple Pointers Method, after described, prior to example or hints. 
+// My solution using Multiple Pointers Strategy, after described, prior to example or hints. 
 function countUniqueValues(arr) {
   let first = 0;
   let second = 1;

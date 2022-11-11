@@ -7,7 +7,7 @@
     binarySearch([5, 6, 10, 13, 14, 18, 30, 34, 35, 37, 40, 44, 64, 79, 84, 86, 95, 96, 98, 99], 100) // -1
     */
 
-const binarySearch = require('../binarySearch');
+const binarySearch = require('../exercises/binarySearch');
 
 test('Should find the val', () => {
   expect(binarySearch([1,2,3,4,5],2)).toBe(1);

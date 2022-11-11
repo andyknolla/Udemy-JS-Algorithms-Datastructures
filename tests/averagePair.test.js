@@ -1,4 +1,4 @@
-const averagePair = require('../averagePair');
+const averagePair = require('../exercises/averagePair');
 
 test('[1,2,3] should include an average of 2.5', () => {
   expect(averagePair([1,2,3], 2.5)).toBe(true);

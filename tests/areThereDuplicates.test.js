@@ -1,4 +1,4 @@
-const areThereDuplicates = require('../areThereDuplicates');
+const areThereDuplicates = require('../exercises/areThereDuplicates');
 
 test('Are there duplicates in 1, 2, 3, should be false', ()=> {
   expect(areThereDuplicates(1, 2, 3)).toBe(false);

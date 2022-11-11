@@ -1,4 +1,4 @@
-const isSubsequence = require('../isSubSequence');
+const isSubsequence = require('../exercises/isSubSequence');
 
 
 test('"hello" is a subsquence of "hello world"', () => {
