@@ -45,15 +45,14 @@ const sorting = {
     var i = 0;
     var j = 0;
     var merged = [];
-    while(i < arr1.length && j < arr2.length) {
-      if(arr1[i] < arr2[j]) {
+    while (i < arr1.length && j < arr2.length) {
+      if (arr1[i] < arr2[j]) {
         merged.push(arr1[i]);
         i++;
-      }
-      else {
+      } else {
         merged.push(arr2[j]);
         j++;
-      } 
+      }
     }
     while(i < arr1.length) {
       merged.push(arr1[i]);
