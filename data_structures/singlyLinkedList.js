@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-class singlyLinkedList {
+class SinglyLinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -59,5 +59,50 @@ class singlyLinkedList {
     }
     this.length++;
     return this;
+  }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    let counter = 0;
+    let current = this.head;
+    while (counter !== index) {
+      current = current.next;
+      counter++;
+    }
+    return current;
+  }
+
+  set(index, val) {
+    if (index < 0 || index >= this.length) return null;
+    let newval = this.get(index);
+    if (newval) {
+      newval = val;
+      return true;
+    }
+    return false;
+  }
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === 0) return !!this.unshift(val);
+    if (index === this.length) return !!this.push(val);
+
+    let newNode = new Node(val);
+    let prev = this.get(index - 1);
+    let temp = prev.next;
+    prev.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
+  }
+  remove(index) {
+    if (index < 0 || index >= this.length) return null;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+
+    let prev = this.get(index - 1);
+    let removal = prev.next;
+    prev.next = removal.next;
+    this.length--;
+    return removal;
   }
 }
