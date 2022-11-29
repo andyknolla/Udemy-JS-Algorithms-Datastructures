@@ -73,10 +73,9 @@ class SinglyLinkedList {
   }
 
   set(index, val) {
-    if (index < 0 || index >= this.length) return null;
     let newval = this.get(index);
     if (newval) {
-      newval = val;
+      newval.val = val;
       return true;
     }
     return false;
@@ -102,6 +101,7 @@ class SinglyLinkedList {
     let prev = this.get(index - 1);
     let removal = prev.next;
     prev.next = removal.next;
+    removal.next = null;
     this.length--;
     return removal;
   }
