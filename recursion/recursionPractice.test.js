@@ -1,4 +1,4 @@
-const recursion = require('../exercises/recursionPractice');
+const recursion = require('./recursionPractice');
 
 // Power
 test('power(2, 2) should equal 4', () => {
