@@ -106,3 +106,5 @@ class SinglyLinkedList {
     return removal;
   }
 }
+
+module.exports = { Node, SinglyLinkedList };
