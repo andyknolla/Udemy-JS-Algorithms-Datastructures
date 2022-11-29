@@ -97,6 +97,10 @@ describe('GET method should have expected node value from a given index', () => 
     expect(gotten.next.val).toBe('three');
     expect(list.length).toBe(3);
   });
+  test('Get should return null for invalid index arguments', () => {
+    expect(list.get(-1)).toBe(null);
+    expect(list.get(15)).toBe(null);
+  });
 });
 
 describe('SET method should change node value at a given index', () => {
