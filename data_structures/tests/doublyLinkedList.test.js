@@ -1,4 +1,4 @@
-const { Node, DoublyLinkedList } = require('../DoublyLinkedList');
+const { DoublyLinkedList } = require('../DoublyLinkedList');
 
 describe('PUSH should add one item', () => {
   const list = new DoublyLinkedList();
@@ -105,8 +105,8 @@ describe('GET method should have expected node value from a given index', () => 
     list.push('four');
     list.push('five');
     expect(list.length).toBe(5);
-    expect(list.get(4).val).toBe('five')
-  })
+    expect(list.get(4).val).toBe('five');
+  });
 });
 
 describe('SET method should change node value at a given index', () => {
@@ -117,7 +117,7 @@ describe('SET method should change node value at a given index', () => {
   test('item at index 1 should first be "two"', () => {
     expect(list.get(1).val).toBe('two');
   });
-  
+
   test('Item at index 1 should now be "reset", it\'s .next should still be "three", length should still be 3', () => {
     list.set(1, 'reset');
     expect(list.get(1).val).toBe('reset');
@@ -138,7 +138,7 @@ describe('SET method should return false for invalid setting', () => {
     expect(list.tail).toBe(null);
   });
   test('attempting to set an item in an empty list should return false', () => {
-    expect(list.set(0, 'one')).toBe(false); 
+    expect(list.set(0, 'one')).toBe(false);
   });
   test('pushing "one" into the list should return the list. Length should then be 1', () => {
     expect(list.push('one')).toBe(list);
@@ -156,36 +156,49 @@ describe('SET method should return false for invalid setting', () => {
 });
 
 describe('INSERT method should add a new node to a list and increase length', () => {
-  const list = new DoublyLinkedList();
-  list.push('one');
-  list.push('two');
-  list.push('three');
+  let list = new DoublyLinkedList();
+
+  test('Inserting into an empty list works normally', () => {
+    expect(list.insert(0, 'one')).toBe(true);
+    expect(list.length).toBe(1);
+  });
+
+  test('Inserting at end of list should work normally', () => {
+    list.push('two');
+    expect(list.insert(2, 'three')).toBe(true);
+    expect(list.length).toBe(3);
+  });
+  
   test('Item at index 1 should first be "two"', () => {
     expect(list.get(1).val).toBe('two');
   });
-  
+
   test('Item at index 1 should now be "inserted", length should be 4', () => {
     var inserted = list.insert(1, 'inserted');
     expect(inserted).toBe(true);
     expect(list.get(1).val).toBe('inserted');
     expect(list.length).toBe(4);
   });
+
   test('Inserted should have expected prev and next values', () => {
     expect(list.get(1).prev.val).toBe('one');
     expect(list.get(1).next.val).toBe('two');
-  })
+  });
+
   test('Displaced node should have expected prev and next values', () => {
     expect(list.get(2).prev.val).toBe('inserted');
     expect(list.get(2).next.val).toBe('three');
   });
+
   test('Node preceding the inserted node should have expected prev and next values', () => {
     expect(list.get(0).prev).toBe(null); // head
     expect(list.get(0).next.val).toBe('inserted');
   });
-  
+
   test('Tail should have null for .next', () => {
     expect(list.tail.next).toBe(null);
   });
+  // test invalid indexes
 });
 
 describe('REMOVE method should shorten a list, and return the removed node', () => {
@@ -195,14 +208,14 @@ describe('REMOVE method should shorten a list, and return the removed node', () 
   list.push('three');
   var nodeBeforeRemoved = list.get(0);
   var removed;
-  var nodeAfterRemoved = list.get(2)
-  
+  var nodeAfterRemoved = list.get(2);
+
   test('Items at indexes 1,2, and 3 should first be "one", "two", and "three"', () => {
     expect(list.get(0).val).toBe('one');
     expect(list.get(1).val).toBe('two');
     expect(list.get(2).val).toBe('three');
   });
-  
+
   test('Removed value should be "two", it\'s .next and .prev should be null', () => {
     removed = list.remove(1);
     expect(removed.val).toBe('two');
@@ -210,16 +223,16 @@ describe('REMOVE method should shorten a list, and return the removed node', () 
     expect(removed.prev).toBe(null);
   });
 
-  test('Item at index 1 should now be "three", it\'s .next should be null, length should be 2', () => {
+  test('List = ["one", "three"]. Item at index 1 should now be "three", it\'s .next should be null, length should be 2', () => {
     expect(list.get(1).val).toBe('three');
     expect(list.get(1).next).toBe(null);
     expect(list.length).toBe(2);
   });
-  test('The first item\'s .next should be "three", and the new item\'s .prev should be "one"', () => {
+  test('List = ["one", "three"]. The first item\'s .next should be "three", and the new item\'s .prev should be "one"', () => {
     expect(list.get(0).next.val).toBe('three');
     expect(list.get(1).prev.val).toBe('one');
   });
-  
+
   test('Tail should have null for .next', () => {
     expect(list.tail.next).toBe(null);
   });
