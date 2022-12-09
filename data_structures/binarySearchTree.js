@@ -38,6 +38,21 @@ class BinarySearchTree {
       }
     }
   }
+
+  find(val) {
+    let current = this.root;
+    while (current) {
+      if (current.val === val) return true;
+      else {
+        if (val < current.val) {
+          current = current.left;
+        } else if (val > current.val) {
+          current = current.right;
+        }
+      }
+    }
+    return false;
+  }
 }
 
 module.exports = { BinarySearchTree };

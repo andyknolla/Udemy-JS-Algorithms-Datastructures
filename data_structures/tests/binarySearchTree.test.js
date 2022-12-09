@@ -75,7 +75,7 @@ describe('Insert LEFT then RIGHT of left', () => {
     expect(bst.root.left.val).toBe(10);
     expect(bst.root.left.right.val).toBe(12);
   });
-  test('Shouldn\'t be anything to the right', () => {
+  test("Shouldn't be anything to the right", () => {
     expect(bst.root.right).toBe(null);
   });
 });
@@ -94,7 +94,7 @@ describe('Insert RIGHT then LEFT', () => {
     expect(bst.root.right.val).toBe(20);
     expect(bst.root.right.left.val).toBe(17);
   });
-  test('Shouldn\'t be anything to the left', () => {
+  test("Shouldn't be anything to the left", () => {
     expect(bst.root.left).toBe(null);
   });
 });
@@ -104,4 +104,27 @@ test('Inserting a duplicate should return undefined', () => {
   bst.insert(15);
 
   expect(bst.insert(15)).toBe(undefined);
+});
+
+describe('FIND', () => {
+  const bst = new BinarySearchTree();
+  bst.insert(15); // root
+  bst.insert(20); // root.right
+  bst.insert(17); // root.right.left      15
+  //////////////////////////////   10            20
+  bst.insert(10); // root.left         12     17
+  bst.insert(12); // root.left.right
+
+  test('Find 12 (left of root) should return true', () => {
+    expect(bst.find(12)).toBe(true);
+  });
+  test('Find 17 (right of root) should return true', () => {
+    expect(bst.find(17)).toBe(true);
+  });
+  test('Find 13 (left of root) should return false', () => {
+    expect(bst.find(13)).toBe(false);
+  });
+  test('Find 18 (right of root) should return false', () => {
+    expect(bst.find(18)).toBe(false);
+  });
 });
