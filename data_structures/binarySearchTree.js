@@ -53,6 +53,53 @@ class BinarySearchTree {
     }
     return false;
   }
+  breadthFirstSearch() {
+    const queue = [];
+    const collection = [];
+    let shifted = this.root;
+    queue.push(shifted);
+    while (queue.length) {
+      shifted = queue.shift();  // move declaration outside the loop. Just reassign.
+      if (shifted.left) queue.push(shifted.left);
+      if (shifted.right) queue.push(shifted.right);
+      collection.push(shifted.val);
+    }
+    return collection;
+  }
+
+  DFS_preorder() {
+    const collection = [];
+    function traverse(node) {
+      collection.push(node.val);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+    traverse(this.root);
+    return collection;
+  }
+
+  DFS_postorder() {
+    const collection = [];
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      collection.push(node.val);
+    }
+    traverse(this.root);
+    return collection;
+  }
+
+  DFS_inOrder() {
+    const collection = [];
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      collection.push(node.val);
+      if (node.right) traverse(node.right);
+    }
+    traverse(this.root);
+    return collection;
+  }
+  
 }
 
 module.exports = { BinarySearchTree };

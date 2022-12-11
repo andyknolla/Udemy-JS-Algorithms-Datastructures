@@ -128,3 +128,45 @@ describe('FIND', () => {
     expect(bst.find(18)).toBe(false);
   });
 });
+
+describe('Breadth First Search', () => {
+  const bst = new BinarySearchTree();
+  bst.insert(15); // root
+  bst.insert(20); // root.right
+  bst.insert(17); // root.right.left
+  bst.insert(18); // root.right.left.right  15
+  //////////////////////////////        10         20
+  bst.insert(10); // root.left     7      12    17
+  bst.insert(12); // root.left.right   11          18
+  bst.insert(7); // root.left.left
+  bst.insert(11); // root.left.right.left
+
+  test('Breadth First search should return: 15, 10, 20, 7, 12, 17, 11, 18', () => {
+    expect(bst.breadthFirstSearch()).toEqual([15, 10, 20, 7, 12, 17, 11, 18]);
+  });
+});
+
+describe('Breadth First Search', () => {
+  const bst = new BinarySearchTree();
+  bst.insert(15); // root
+  bst.insert(20); // root.right
+  bst.insert(17); // root.right.left
+  bst.insert(18); // root.right.left.right        15
+  //////////////////////////////            10           20
+  bst.insert(10); // root.left           7      12    17
+  bst.insert(12); // root.left.right    6 8   11         18
+  bst.insert(7); // root.left.left
+  bst.insert(8); // root.left.left.right
+  bst.insert(6); // root.left.left.left
+  bst.insert(11); // root.left.right.left
+
+  test('Depth First Search, PreOrder, should return: 15, 10, 7, 8, 6, 11, 12, 20, 17, 18', () => {
+    expect(bst.DFS_preorder()).toEqual([15, 10, 7, 6, 8, 12, 11, 20, 17, 18]);
+  });
+  test('Depth First Search, PostOrder, should return: 6, 8, 7, 11, 12, 10, 18, 17, 20, 15', () => {
+    expect(bst.DFS_postorder()).toEqual([6, 8, 7, 11, 12, 10, 18, 17, 20, 15]);
+  });
+  test('Depth First Search, In-Order, should return: 6, 7, 8, 10, 11, 12, 15, 18, 17, 20', () => {
+    expect(bst.DFS_inOrder()).toEqual([6, 7, 8, 10, 11, 12, 15, 17, 18, 20]);
+  });
+});
